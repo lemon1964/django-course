@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/tbl.css' %}">
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+
+</head>
+<body>
+  <table class="styled-table">
+      <thead>
+          <tr>
+              <th>name</th>
+              <th>entrance</th>
+              <th>exit</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>times</td>
+              <td>5 повторов</td>
+              <td>
+                  {% load my_filters %}
+                    {% for i in 5|times %}
+                        <p>Hello</p>
+                    {% endfor %}
+              </td>
+          </tr>
+          <tr class="active-row">
+              <td>filter_range</td>
+              <td>коллекция от 2 до 4</td>
+              <td>
+                  {% load my_filters %}
+                    {% for c in 2|filter_range:5 %}
+                        <p>{{ c }}</p>
+                    {% endfor %}
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'feedback/base.html' %}
+
+{% block title %} Отзывы {% endblock %}
+
+{% block content %}
+<h2>Список всех отзывов</h2>
+
+        <table>
+            <tr>
+                <th><h2>id</h2></th>
+                <th><h2>Имя</h2></th>
+                <th><h2>Фамилия</h2></th>
+                <th><h2>Отзыв</h2></th>
+                <th><h2>Рейтинг</h2></th>
+            </tr>
+            {% for field in feedback %}
+            <tr>
+                <td>{{ field.pk }}</td>
+                <td>{{ field.name }}</td>
+                <td>{{ field.surname }}</td>
+                <td>{{ field.feedback }}</td>
+                <td>{{ field.rating }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
+
+

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Гороскоп для {{sign|upper}}</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;    <h1>Приложение Гороскоп</h1>&ndash;&gt;-->
+
+<!--    {% if description is None %}-->
+<!--    <h2>Неправильный знак Зодиака {{sign}}</h2>-->
+<!--    {% else %}-->
+<!--    <h2>{{description|capfirst|safe}}</h2>-->
+<!--    {% endif %}-->
+
+<!--&lt;!&ndash;    <h2>Число {{intt|add:5}}</h2>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    {% if listt|length >= 3 %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>Список из 3 и более элементов {{listt}}</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% elif listt|length < 3 %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>Список из менее 3 элементов {{listt}}</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% endif %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <h2>Кортеж {{kort|join:'//'}}</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>Словарь {{dictt}}, ключ {{dictt.name}}</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>Экземпляр класса {{my_class}}, {{my_class.age}} лет</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>default {{value|default:"qwerty"}}</h2>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+{% load static %}
+{% load my_filter %}
+
+
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}">
+{% endblock %}
+
+{% block title %}
+    Гороскоп для {{sign|upper}}
+{% endblock %}
+
+{% block content %}
+    {% include 'includes/navbar.html' %}
+    <h1>{{description|split|first}}</h1>
+    {% if description is None %}
+        <h2>Неправильный знак Зодиака {{sign}}</h2>
+    {% else %}
+        <h2>{{description|capfirst|safe}}</h2>
+    {% endif %}
+{% endblock %}
